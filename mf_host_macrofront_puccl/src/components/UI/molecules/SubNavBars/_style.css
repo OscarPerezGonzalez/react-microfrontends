@@ -1,0 +1,20 @@
+.MuiListItemText-primary {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+.MuiListItemText-primary:hover {
+    font-weight: bold !important;
+}
+
+.MuiListItem-root:hover {
+    font-weight:bold !important;
+}
+
+.MuiButtonBase-root:hover {
+    font-weight: bold !important;
+}
+
+.MuiList-root:hover {
+    font-weight: bold !important;
+}
