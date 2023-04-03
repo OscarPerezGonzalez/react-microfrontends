@@ -12,7 +12,7 @@ const Header = () => {
       >
         <Toolbar>
           <Typography sx={{typography : (theme) => theme.typography.header_text}} noWrap component="div">
-          <img src={Liverpool_Logo} alt={"Liverpool Logo"}></img>&nbsp;
+          <Liverpool_Logo/>&nbsp;
           </Typography>
           <Typography sx={{typography : (theme) => theme.typography.header_number}} style={{ marginTop: '-0.7rem'}}noWrap component="div">
            360°

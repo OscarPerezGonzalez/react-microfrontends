@@ -52,10 +52,10 @@ export const pucclTheme = createTheme({
             fontFamily: 'Roboto',
             fontWeight: '500'
         },
-        list:{
-            fontSize: 14,
+        search_title:{
+            fontSize: 16,
             fontFamily: 'Roboto',
-            fontWeight: '500'
+            fontWeight: '400'
         }
     },
 });

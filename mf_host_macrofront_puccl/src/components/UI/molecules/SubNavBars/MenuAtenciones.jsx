@@ -8,6 +8,7 @@ import {
   Collapse
 } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import './_style.css'
 
 export default function MenuAtenciones() {
   const [openOne, setOpenOne] = React.useState(false);
@@ -55,8 +56,8 @@ export default function MenuAtenciones() {
         */}
       <List component="nav" aria-labelledby="nested-list-one" disablePadding>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleClickOne}>
-            <ListItemText primary="Información del Cliente"></ListItemText>
+          <ListItemButton onClick={handleClickOne} style={{justifyContent: "space-between"}}>
+            Información del Cliente
             {openOne ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
@@ -88,8 +89,8 @@ export default function MenuAtenciones() {
       </List>
       <List component="nav" aria-labelledby="nested-list-two" >
         <ListItem disablePadding>
-          <ListItemButton onClick={handleClickTwo}>
-            <ListItemText primary="Folios de Seguimiento"></ListItemText>
+          <ListItemButton onClick={handleClickTwo} style={{justifyContent: "space-between"}}>
+            Folios de Seguimiento
             {openTwo ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
@@ -114,8 +115,8 @@ export default function MenuAtenciones() {
       </List>
       <List component="nav" aria-labelledby="nested-list-three" >
         <ListItem disablePadding>
-          <ListItemButton onClick={handleClickThree}>
-            <ListItemText primary="Pedidos"></ListItemText>
+          <ListItemButton onClick={handleClickThree} style={{justifyContent: "space-between"}}>
+             Pedidos
             {openThree ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
@@ -140,8 +141,8 @@ export default function MenuAtenciones() {
       </List>
       <List component="nav" aria-labelledby="nested-list-four" >
         <ListItem disablePadding>
-          <ListItemButton onClick={handleClickFour}>
-            <ListItemText primary="Crédito y Tarjetas"></ListItemText>
+          <ListItemButton onClick={handleClickFour} style={{justifyContent: "space-between"}}>
+            Crédito y Tarjetas
             {openFour ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
@@ -180,8 +181,8 @@ export default function MenuAtenciones() {
       </List>
       <List component="nav" aria-labelledby="nested-list-five" >
         <ListItem disablePadding>
-          <ListItemButton onClick={handleClickFive}>
-            <ListItemText primary="Seguros"></ListItemText>
+          <ListItemButton onClick={handleClickFive} style={{justifyContent: "space-between"}}>
+            Seguros
             {openFive ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
@@ -206,8 +207,8 @@ export default function MenuAtenciones() {
       </List>
       <List component="nav" aria-labelledby="nested-list-six" >
         <ListItem disablePadding>
-          <ListItemButton onClick={handleClickSix}>
-            <ListItemText primary="Promociones"></ListItemText>
+          <ListItemButton onClick={handleClickSix} style={{justifyContent: "space-between"}}>
+            Promociones
             {openSix ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>

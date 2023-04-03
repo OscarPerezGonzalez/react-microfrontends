@@ -19,8 +19,8 @@ import PersistentDrawerLeft from "./components/UI/organims/NavBar/NavBar";
 import ClippedDrawer from "./components/UI/organims/Header/Header";
 import GridContainer from "./components/UI/atoms/GridContainer/GridContainer";
 import GridItem from "./components/UI/atoms/GridItem/GridItem";
-import asesor_telefonico from './svg/Asesor_Telefónico.svg';
-import lapiz from './svg/lapiz.svg'
+import Asesor_telefonico from './svg/Asesor_Telefónico.svg';
+import Lapiz from './svg/lapiz.svg'
 
 import PersonalData from "mf_remote_clients_puccl/PersonalData";
 
@@ -44,14 +44,14 @@ const App = () => {
                 }}
               >
                 <GridContainer style={{marginTop: '10px'}}>
-                  <GridItem md={-1}><img style={{paddingRight: '10px'}} src={asesor_telefonico} alt="Asesor_Telefonico"></img></GridItem>
+                  <GridItem md={-1}><Asesor_telefonico style={{paddingRight: '10px'}}/></GridItem>
                   <GridItem md={7}>
                     <GridContainer sx={{typography : (theme) => theme.typography.main_text}}>
                       <GridItem md={2.5} sx={{typography : (theme) => theme.typography.name}} color='#833177'>Oscar Pérez González</GridItem>
                       <GridItem md={9} style={{marginTop: '2px'}}>Acesor CCL</GridItem>
-                      <GridItem md={2.5} style={{marginTop: '5px'}}><strong>ID Avaya:</strong> 123456 <img src={lapiz} alt='lapiz'></img></GridItem>
+                      <GridItem md={2.5} style={{marginTop: '5px'}}><strong>ID Avaya:</strong> 123456 <Lapiz/></GridItem>
                       <GridItem md={2.5} style={{marginTop: '5px'}}><strong>Skill Activo:</strong> Seguimientos</GridItem>
-                      <GridItem md={2} style={{marginTop: '5px'}}><strong>Auxiliar:</strong> <span className="text-auxiliar">Activo</span></GridItem>
+                      <GridItem md={2} style={{marginTop: '5px'}}><strong>Extensión:</strong> <span className="text-auxiliar">Activo</span></GridItem>
                     </GridContainer>
                   </GridItem>
                   {/* <GridItem md={4}>BARRA DE BUSQUEDA</GridItem> */}

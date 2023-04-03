@@ -6,13 +6,14 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import SettingsIcon from '@mui/icons-material/Settings';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import MenuAtenciones from "../../molecules/SubNavBars/MenuAtenciones";
 import MenuConfiguraciones from "../../molecules/SubNavBars/MenuConfiguraciones";
 import MenuReportes from "../../molecules/SubNavBars/MenuReportes";
-import logout from '../../../../svg/logout.svg'
+import Logout from '../../../../svg/logout.svg'
+import Atenciones from '../../../../svg/Atenciones.svg'
+import "./_style.css"
 
 const drawerWidth = 61;
 
@@ -63,8 +64,8 @@ export default function PermanentDrawerLeft() {
                   <ListItem disablePadding>
                     <ListItemButton onClick={() => HandleClick('Atenciones')} style={{justifyContent:"center", 
                   borderLeft: activo == 'Atenciones' ? '4px solid #833177': '4px solid white',}}>
-                      <ListItemIcon style={{justifyContent:"center"}}>
-                        <AccountBoxIcon fontSize="large" style={{color: activo == 'Atenciones' ? '#833177': ''}}/>        
+                      <ListItemIcon style={{justifyContent:"center"}}>       
+                        {activo == 'Atenciones' ? <Atenciones fontSize="large" className="my-svg-wrapper1"/> : <Atenciones className="my-svg-wrapper2 my-svg-wrapper1-1"/>} {/*<Atenciones fontSize="large" style={{fill: activo == 'Atenciones' ? '#833177': 'black'}}/>         */}
                       </ListItemIcon>
                     </ListItemButton>
                   </ListItem>
@@ -72,7 +73,9 @@ export default function PermanentDrawerLeft() {
                     <ListItemButton onClick={() => HandleClick('Ajustes')} style={{justifyContent:"center",
                     borderLeft: activo == 'Ajustes' ? '4px solid #833177': '4px solid white',}}>
                       <ListItemIcon style={{justifyContent:"center"}}>
-                      <SettingsApplicationsIcon fontSize="large" style={{color: activo == 'Ajustes' ? '#833177': ''}}/>                
+                      <SettingsIcon fontSize="large" style={{color: activo == 'Ajustes' ? 'white': '', 
+                                                            backgroundColor: activo == 'Ajustes' ? '#833177': '#F5F5F5',
+                                                            borderRadius:'20%'}}/>                
                       </ListItemIcon>
                     </ListItemButton>
                   </ListItem>
@@ -81,7 +84,7 @@ export default function PermanentDrawerLeft() {
                      borderLeft: activo == 'Reportes' ? '4px solid #833177': '4px solid white',}}>
                       <ListItemIcon style={{justifyContent:"center"}}>
                       <BarChartIcon fontSize="large" style={{color: activo == 'Reportes' ? 'white': '', 
-                                                            backgroundColor: activo == 'Reportes' ? '#833177': '',
+                                                            backgroundColor: activo == 'Reportes' ? '#833177': 'F5F5F5',
                                                             borderRadius:'20%'}}/>        
                       </ListItemIcon>
                     </ListItemButton>
@@ -92,7 +95,7 @@ export default function PermanentDrawerLeft() {
               <ListItemButton onClick={() => HandleClick('Logout')} style={{justifyContent:"center",
               borderLeft: activo == 'Logout' ? '4px solid white': '4px solid white',}}>
                 <ListItemIcon style={{justifyContent:"center"}}>
-                <img src={logout} alt="Logout"></img>        
+                <Logout />        
                 </ListItemIcon>
               </ListItemButton>
             </ListItem>

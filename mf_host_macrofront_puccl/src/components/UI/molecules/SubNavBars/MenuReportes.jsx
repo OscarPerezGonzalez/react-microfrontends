@@ -8,11 +8,11 @@ export default function MenuReportes() {
       <Typography sx={{typography : (theme) => theme.typography.menu_title, paddingTop:'30px', paddingBottom:'30px', paddingLeft:'10px'}} noWrap component="div">
           Reportes
         </Typography>
-      <Button sx={{typography : (theme) => theme.typography.name, color: 'black', justifyContent:'initial'}} fullWidth> Reporte de Usuarios</Button>
+      <Button sx={{typography : (theme) => theme.typography.name, color: 'black', justifyContent:'initial'}} fullWidth> Reporte de Usuarios</Button> {/* cuando clickea mandar font weight a bold*/}
       <Divider></Divider>
-      <Button sx={{typography : (theme) => theme.typography.name, color: 'black', justifyContent:'initial'}} fullWidth> Reporte de Interacciones</Button>
+      <Button sx={{typography : (theme) => theme.typography.name, color: 'black', justifyContent:'initial'}} fullWidth> Reporte de Interacciones</Button> {/* cuando clickea mandar font weight a bold*/}
       <Divider></Divider>
-      <Button sx={{typography : (theme) => theme.typography.name, color: 'black', justifyContent:'initial'}} fullWidth> Reporte de Accesos</Button>
+      <Button sx={{typography : (theme) => theme.typography.name, color: 'black', justifyContent:'initial'}} fullWidth> Reporte de Accesos</Button> {/* cuando clickea mandar font weight a bold*/}
       <Divider></Divider>
       </>
     );
