@@ -10,18 +10,16 @@ const mfApplications = {
   },
 }
 
-const routes = {
-  socialWifi: [
-    {
-      path: '/',
-      component: Home,
-    },
-    {
-      path: '/login',
-      component: RemoteWrapper,
-      mf: mfApplications.loginInformation,
-    },
-  ],
-}
+const routes = [
+  {
+    path: '/',
+    component: Home,
+  },
+  {
+    path: '/login',
+    component: RemoteWrapper,
+    mf: mfApplications.loginInformation,
+  },
+]
 
 export default routes

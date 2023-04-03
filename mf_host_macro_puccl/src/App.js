@@ -22,7 +22,7 @@ import asesoTelefonico from './svg/Asesor_Telefónico.svg'
 import lapiz from './svg/lapiz.svg'
 
 export const history = createBrowserHistory()
-const rutasProducto = routes.socialWifi
+const rutasProducto = routes
 
 const App = () => {
   return (
