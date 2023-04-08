@@ -15,10 +15,11 @@ const validationSchema = yup.object({
   nombre: yup.string().required("El Nombre es Requerido"),
   apellidop: yup.string().required("El Apellido Paterno es Requerido"),
   apellidom: yup.string().notRequired(),
-  telefono: yup.string().matches(/^[0-9]+$/, "Deben de ser solo digitos").min(10,"Deben ser 10 números").max(10,"Deben ser 10 números").required("El telefono es requerido"),
-  rfc: yup.string().required("El RFC es requerido"),
-  no_tarjeta: yup.string().required("El Número de Tarjeta es requerido"),
-  no_cuenta: yup.string().required("El Número de cuenta es requerido"),
+  telefono:  yup.string()
+            .matches(/^[0-9]+$/, "Deben de ser solo digitos")
+            .min(10,"Deben ser 10 números")
+            .max(10,"Deben ser 10 números")
+            .required("El telefono es requerido"),
 });
 
 const initialValues = {
@@ -26,14 +27,10 @@ const initialValues = {
   correo: '',
   apellidop: '',
   apellidom: '',
-  telefono: '',
-  rfc: '',
-  no_tarjeta: '',
-  no_cuenta:''
+  telefono: ''
 };
 
-const BoxInputsForm = () => {
-
+const BoxInputsCreate = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: validationSchema,
@@ -46,11 +43,11 @@ const BoxInputsForm = () => {
     <div
       style={{
         position: "absolute",
-        top: "20%",
+        top: "27%",
         left: "10%",
         right: "10%",
         bottom: 0,
-        height: "37%",
+        height: "30%",
         backgroundColor: "white",
         border: "2px solid #D5D5D5",
         borderRadius: "12px",
@@ -62,7 +59,7 @@ const BoxInputsForm = () => {
           <CustomTextInput 
           id={"nombre"}
           name={"nombre"}
-          label={"Nombre(s)"}
+          label={"Nombre"}
           value={formik.values.nombre}
           onChange={formik.handleChange}
           error={formik.touched.nombre && Boolean(formik.errors.nombre)}
@@ -101,37 +98,11 @@ const BoxInputsForm = () => {
           onChange={formik.handleChange}
           error={formik.touched.telefono && Boolean(formik.errors.telefono)}
           helperText={formik.touched.telefono && formik.errors.telefono} />
-          <CustomTextInput 
-          id={"rfc"}
-          name={"rfc"}
-          label={"RFC"}
-          value={formik.values.rfc}
-          onChange={formik.handleChange}
-          error={formik.touched.rfc && Boolean(formik.errors.rfc)}
-          helperText={formik.touched.rfc && formik.errors.rfc} />
-        </Box>
-        <Box display="flex">
-          <CustomTextInput 
-          id={"no_tarjeta"}
-          name={"no_tarjeta"}
-          label={"Número de tarjeta"}
-          value={formik.values.no_tarjeta}
-          onChange={formik.handleChange}
-          error={formik.touched.no_tarjeta && Boolean(formik.errors.no_tarjeta)}
-          helperText={formik.touched.no_tarjeta && formik.errors.no_tarjeta} />
-          <CustomTextInput 
-          id={"no_cuenta"}
-          name={"no_cuenta"}
-          label={"Número de Cuenta"}
-          value={formik.values.no_cuenta}
-          onChange={formik.handleChange}
-          error={formik.touched.no_cuenta && Boolean(formik.errors.no_cuenta)}
-          helperText={formik.touched.no_cuenta && formik.errors.no_cuenta}/>
-          <CustomButtonA style={{ paddingRight: "30px" }} children={"Buscar"} type='submit'/>
+          <CustomButtonA style={{ paddingRight: "30px" }} children={"Crear Cliente"} type='submit'/>
         </Box>
       </form>
     </div>
   );
 };
 
-export default BoxInputsForm;
+export default BoxInputsCreate;

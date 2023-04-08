@@ -1,10 +1,12 @@
 // MUI
 import React from 'react'
 import { styled, TextField } from '@mui/material'
+import './_style.css'
 
 const InputTextField = styled(TextField)({
   '& label.Mui-focused': {
-    color: '#D8D8D8',
+    color: 'black',
+    marginTop: '0rem !important'
   },
   '& .MuiInput-underline:after': {
     borderBottomColor: '#D8D8D8',
@@ -21,29 +23,33 @@ const InputTextField = styled(TextField)({
     },
   },
   '& .MuiInputLabel-root': {
-    fontSize: '20px',
+    fontSize: '16px',
     fontWeight: 300,
   },'& .MuiInputBase-root': {
-    height: '64px',
-    width: '520px',
+    height: '40px',
+    width: '261px',
+    fontSize: '16px',
+    fontWeight: 300,
   },
-  marginTop: '30px',
+  marginTop: '10px',
   marginRight: '20px',
   marginLeft: '20px',
-  fontSize: '16px',
-  fontWeight: 300,
+  marginBottom: '15px',
 });
 
 const CustomTextInput = (props) => {
-  const { label, id, value, onChange, disabled } = props
+  const { label, id, value, onChange, disabled, name, error, helperText } = props
   return (
     <>
       <InputTextField variant="outlined"
-          label={label}
           disabled={disabled}
-          id={id}
-          value={value}
           onChange={onChange}
+          id={id}
+          name={name}
+          label={label}
+          value={value}
+          error={error}
+          helperText={helperText}
           >
       </InputTextField>
     </>

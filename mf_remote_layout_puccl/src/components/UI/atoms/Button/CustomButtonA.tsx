@@ -4,8 +4,8 @@ import Button from '@mui/material/Button'
 import React from 'react'
 
 const CustomButtonS = styled(Button)({
-  height: '64px',
-  width: '260px',
+  height: '40px',
+  width: '139px',
   padding: "8px 16px 8px 16px",
   borderRadius: '4px',
   backgroundColor: '#833177',
@@ -17,13 +17,13 @@ const CustomButtonS = styled(Button)({
   '&:hover': {
     backgroundColor: '#833177',
   },
-  marginTop: '30px',
+  marginTop: '10px',
   marginRight: '20px',
   marginLeft: '20px',
 });
 
 const CustomButtonA = (props) => {
-  const { id, children, onClick, disabled } = props
+  const { id, children, onClick, disabled, type } = props
   return (
     <>
       <CustomButtonS
@@ -31,6 +31,7 @@ const CustomButtonA = (props) => {
         id={id}
         disabled={disabled}
         onClick={onClick}
+        type={type}
       >
         {children}
       </CustomButtonS>

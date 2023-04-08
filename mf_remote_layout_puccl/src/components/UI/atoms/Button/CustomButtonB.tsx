@@ -4,21 +4,18 @@ import Button from '@mui/material/Button'
 import React from 'react'
 
 const CustomButtonS = styled(Button)({
-  height: '40px',
-  width: '139px',
+  height: '32px',
+  width: '114px',
   padding: 0,
   borderRadius: '4px',
   backgroundColor: '#833177',
   fontWeight: 400,
-  fontSize: '16px',
+  fontSize: '12px',
   textTransform:"capitalize",
   fontFamily: 'Roboto',
   '&:hover': {
     backgroundColor: '#833177',
   },
-  marginTop: '30px',
-  marginRight: '20px',
-  marginLeft: '20px',
 });
 
 const CustomButtonB = (props) => {

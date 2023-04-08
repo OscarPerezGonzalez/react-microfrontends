@@ -11,6 +11,8 @@ import ScreenComponent from "./components/UI/molecules/Screen/Screen";
 import MainComponent from "./components/UI/organisms/Main";
 
 const App = () => (
-  <MainComponent/>
+  <StyleProvider>
+    <MainComponent/>
+  </StyleProvider>
 );
 ReactDOM.render(<App />, document.getElementById("app"));
