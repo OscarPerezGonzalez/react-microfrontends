@@ -11,16 +11,21 @@ import {
   Box,
   IconButton,
   TablePagination,
+  createTheme,
 } from "@mui/material";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
-import { makeStyles, useTheme } from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 import "./_styles.css";
 import CustomButtonB from "../Button/CustomButtonB";
 
 const DEFAULT_ROWS_PER_PAGE = 3;
+
+const theme = createTheme({
+    direction: 'rtl',
+  });
 
 interface TablePaginationActionsProps {
   count: number;
@@ -32,8 +37,25 @@ interface TablePaginationActionsProps {
   ) => void;
 }
 
+const useStyles = makeStyles({
+  cell: {
+    fontSize: "14px",
+    fontWeight: "400",
+    padding: "0.74rem 1rem 0.75rem 1rem !important",
+  },
+  header: {
+    fontSize: "14px",
+    fontWeight: "540",
+    padding: "0.5rem 1rem 0.5rem 1rem !important",
+    position: "sticky",
+    top: "0",
+    zIndex: "1",
+    backgroundColor: "white",
+  },
+});
+
+
 function TablePaginationActions(props: TablePaginationActionsProps) {
-  const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
 
   const handleFirstPageButtonClick = (
@@ -67,7 +89,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
         disabled={page === 0}
         aria-label="first page"
       >
-        {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
+        {theme.direction ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
@@ -101,23 +123,6 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
     </Box>
   );
 }
-
-const useStyles = makeStyles({
-  cell: {
-    fontSize: "14px",
-    fontWeight: "400",
-    padding: "0.74rem 1rem 0.75rem 1rem !important",
-  },
-  header: {
-    fontSize: "14px",
-    fontWeight: "540",
-    padding: "0.5rem 1rem 0.5rem 1rem !important",
-    position: "sticky",
-    top: "0",
-    zIndex: "1",
-    backgroundColor: "white",
-  },
-});
 
 const CustomTable = (props) => {
   const classes = useStyles();
