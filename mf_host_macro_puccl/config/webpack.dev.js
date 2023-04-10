@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 require('dotenv').config()
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
@@ -33,6 +34,7 @@ const devConfig = {
       remotes: {
         login: 'login@http://localhost:3001/remoteEntry.js',
         registro: 'registro@http://localhost:3002/remoteEntry.js',
+        core: 'core@http://localhost:8081/remoteEntry.js'
       },
       shared: {
         react: {

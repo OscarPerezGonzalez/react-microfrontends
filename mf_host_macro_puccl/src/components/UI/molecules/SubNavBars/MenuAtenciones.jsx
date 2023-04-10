@@ -1,48 +1,48 @@
-import * as React from "react";
+import * as React from 'react'
 import {
   List,
   ListItem,
   ListItemButton,
   ListItemText,
   Typography,
-  Collapse
-} from "@mui/material";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
+  Collapse,
+} from '@mui/material'
+import { ExpandLess, ExpandMore } from '@mui/icons-material'
 
 export default function MenuAtenciones() {
-  const [openOne, setOpenOne] = React.useState(false);
-  const [openTwo, setOpenTwo] = React.useState(false);
-  const [openThree, setOpenThree] = React.useState(false);
-  const [openFour, setOpenFour] = React.useState(false);
-  const [openFive, setOpenFive] = React.useState(false);
-  const [openSix, setOpenSix] = React.useState(false);
+  const [openOne, setOpenOne] = React.useState(false)
+  const [openTwo, setOpenTwo] = React.useState(false)
+  const [openThree, setOpenThree] = React.useState(false)
+  const [openFour, setOpenFour] = React.useState(false)
+  const [openFive, setOpenFive] = React.useState(false)
+  const [openSix, setOpenSix] = React.useState(false)
   const handleClickOne = () => {
-    setOpenOne(!openOne);
-  };
+    setOpenOne(!openOne)
+  }
   const handleClickTwo = () => {
-    setOpenTwo(!openTwo);
-  };
+    setOpenTwo(!openTwo)
+  }
   const handleClickThree = () => {
-    setOpenThree(!openThree);
-  };
+    setOpenThree(!openThree)
+  }
   const handleClickFour = () => {
-    setOpenFour(!openFour);
-  };
+    setOpenFour(!openFour)
+  }
   const handleClickFive = () => {
-    setOpenFive(!openFive);
-  };
+    setOpenFive(!openFive)
+  }
   const handleClickSix = () => {
-    setOpenSix(!openSix);
-  };
+    setOpenSix(!openSix)
+  }
 
   return (
     <>
       <Typography
         sx={{
-          typography: (theme) => theme.typography.menu_title,
-          paddingTop: "30px",
-          paddingBottom: "30px",
-          paddingLeft: "10px",
+          typography: theme => theme.typography.menu_title,
+          paddingTop: '30px',
+          paddingBottom: '30px',
+          paddingLeft: '10px',
         }}
         noWrap
         component="div"
@@ -86,7 +86,7 @@ export default function MenuAtenciones() {
           </List>
         </Collapse>
       </List>
-      <List component="nav" aria-labelledby="nested-list-two" >
+      <List component="nav" aria-labelledby="nested-list-two">
         <ListItem disablePadding>
           <ListItemButton onClick={handleClickTwo}>
             <ListItemText primary="Folios de Seguimiento"></ListItemText>
@@ -112,7 +112,7 @@ export default function MenuAtenciones() {
           </List>
         </Collapse>
       </List>
-      <List component="nav" aria-labelledby="nested-list-three" >
+      <List component="nav" aria-labelledby="nested-list-three">
         <ListItem disablePadding>
           <ListItemButton onClick={handleClickThree}>
             <ListItemText primary="Pedidos"></ListItemText>
@@ -138,7 +138,7 @@ export default function MenuAtenciones() {
           </List>
         </Collapse>
       </List>
-      <List component="nav" aria-labelledby="nested-list-four" >
+      <List component="nav" aria-labelledby="nested-list-four">
         <ListItem disablePadding>
           <ListItemButton onClick={handleClickFour}>
             <ListItemText primary="Crédito y Tarjetas"></ListItemText>
@@ -178,7 +178,7 @@ export default function MenuAtenciones() {
           </List>
         </Collapse>
       </List>
-      <List component="nav" aria-labelledby="nested-list-five" >
+      <List component="nav" aria-labelledby="nested-list-five">
         <ListItem disablePadding>
           <ListItemButton onClick={handleClickFive}>
             <ListItemText primary="Seguros"></ListItemText>
@@ -204,7 +204,7 @@ export default function MenuAtenciones() {
           </List>
         </Collapse>
       </List>
-      <List component="nav" aria-labelledby="nested-list-six" >
+      <List component="nav" aria-labelledby="nested-list-six">
         <ListItem disablePadding>
           <ListItemButton onClick={handleClickSix}>
             <ListItemText primary="Promociones"></ListItemText>
@@ -224,5 +224,5 @@ export default function MenuAtenciones() {
         </Collapse>
       </List>
     </>
-  );
+  )
 }
