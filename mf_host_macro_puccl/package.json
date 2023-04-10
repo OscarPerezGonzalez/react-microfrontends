@@ -1,10 +1,6 @@
 {
   "name": "host",
   "version": "1.0.0",
-  "engines": {
-    "node": ">=12.x <15.0.0",
-    "npm": ">=6.14.4 <7.0.2"
-  },
   "scripts": {
     "build:webpack-dev": "webpack serve --config config/webpack.dev.js",
     "start:dev-server": "node server/server-dev.js",
@@ -13,7 +9,8 @@
     "start": "NODE_ENV=production && node server/server-prod.js",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "sonar": "node sonar-project.js"
+    "sonar": "node sonar-project.js",
+    "fix": "prettier --write src"
   },
   "license": "MIT",
   "author": {
