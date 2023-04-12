@@ -6,3 +6,21 @@
     top: 0;
     left: 0;
 }
+
+.text_360 {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: white;
+}
+
+.text_b {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: white;
+}
+
+.text_vista {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: white;
+}

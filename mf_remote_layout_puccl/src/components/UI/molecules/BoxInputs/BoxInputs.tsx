@@ -46,11 +46,11 @@ const BoxInputsForm = () => {
     <div
       style={{
         position: "absolute",
-        top: "20%",
-        left: "10%",
-        right: "10%",
+        top: "30%",
+        left: "12.5%",
+        right: "12.5%",
         bottom: 0,
-        height: "37%",
+        height: "65%",
         backgroundColor: "white",
         border: "2px solid #D5D5D5",
         borderRadius: "12px",

@@ -8,7 +8,7 @@ import StyleProvider from "./providers/Style";
 import "./index.css";
 import CustomButtonA from "./components/UI/atoms/Button/CustomButtonA";
 import ScreenComponent from "./components/UI/molecules/Screen/Screen";
-import MainComponent from "./components/UI/organisms/Main";
+import MainComponent from "./components/UI/organisms/Main/Main";
 
 const App = () => (
   <StyleProvider>

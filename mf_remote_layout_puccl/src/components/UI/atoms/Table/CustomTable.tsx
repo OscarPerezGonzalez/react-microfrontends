@@ -7,25 +7,19 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Button,
   Box,
   IconButton,
   TablePagination,
-  createTheme,
 } from "@mui/material";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
-import { makeStyles } from "@mui/styles";
+import { makeStyles, useTheme, DefaultTheme } from "@mui/styles";
 import "./_styles.css";
 import CustomButtonB from "../Button/CustomButtonB";
 
 const DEFAULT_ROWS_PER_PAGE = 3;
-
-const theme = createTheme({
-    direction: 'rtl',
-  });
 
 interface TablePaginationActionsProps {
   count: number;
@@ -37,25 +31,14 @@ interface TablePaginationActionsProps {
   ) => void;
 }
 
-const useStyles = makeStyles({
-  cell: {
-    fontSize: "14px",
-    fontWeight: "400",
-    padding: "0.74rem 1rem 0.75rem 1rem !important",
-  },
-  header: {
-    fontSize: "14px",
-    fontWeight: "540",
-    padding: "0.5rem 1rem 0.5rem 1rem !important",
-    position: "sticky",
-    top: "0",
-    zIndex: "1",
-    backgroundColor: "white",
-  },
-});
-
+interface MyTheme extends DefaultTheme {
+  direction: string
+}
 
 function TablePaginationActions(props: TablePaginationActionsProps) {
+  const theme : MyTheme ={
+    direction: ''
+  } 
   const { count, page, rowsPerPage, onPageChange } = props;
 
   const handleFirstPageButtonClick = (
@@ -89,7 +72,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
         disabled={page === 0}
         aria-label="first page"
       >
-        {theme.direction ? <LastPageIcon /> : <FirstPageIcon />}
+        {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
@@ -124,6 +107,23 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   );
 }
 
+const useStyles = makeStyles({
+  cell: {
+    fontSize: "14px",
+    fontWeight: "400",
+    padding: "0.74rem 1rem 0.73rem 1rem !important",
+  },
+  header: {
+    fontSize: "14px",
+    fontWeight: "540",
+    padding: "0.5rem 1rem 0.5rem 1rem !important",
+    position: "sticky",
+    top: "0",
+    zIndex: "1",
+    backgroundColor: "white",
+  },
+});
+
 const CustomTable = (props) => {
   const classes = useStyles();
 
@@ -151,7 +151,7 @@ const CustomTable = (props) => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+    <Box style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <TableContainer component={Paper} style={{ height: "61%" }}>
         <Table>
           <TableHead style={{ fontWeight: "bolder" }}>
@@ -191,7 +191,7 @@ const CustomTable = (props) => {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[3, 9, 12, { label: "All", value: -1 }]}
+        rowsPerPageOptions={[3, 9, 12, { label: "Todos", value: -1 }]}
         count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
@@ -207,7 +207,7 @@ const CustomTable = (props) => {
         ActionsComponent={TablePaginationActions}
         sx={{ alignSelf: "flex-end", borderBottom: "0" }}
       />
-    </div>
+    </Box>
   );
 };
 

@@ -17,7 +17,6 @@ export const pucclTheme = createTheme({
     typography: {
         header_number : {
             fontSize: 14,
-            fontFamily: 'Roboto',
             fontWeight: 'bold',
         },
         header_text : {
@@ -28,34 +27,28 @@ export const pucclTheme = createTheme({
         },
         name:{
             fontSize: 14,
-            fontFamily: 'Roboto',
             fontWeight: '500',
             textTransform:"capitalize"
         },
         main_text:{
             fontSize: 12,
-            fontFamily: 'Roboto',
             fontWeight: '500',
         },
         footer:{
             fontSize: 12,
-            fontFamily: 'Roboto',
             fontWeight: '400',
         },
         footer_notas:{
             fontSize: 14,
-            fontFamily: 'Roboto',
             fontWeight: '400',  
         },
         menu_title:{
             fontSize: 16,
-            fontFamily: 'Roboto',
             fontWeight: '500'
         },
-        search_title:{
-            fontSize: 16,
-            fontFamily: 'Roboto',
-            fontWeight: '400'
+        list:{
+            fontSize: 14,
+            fontWeight: '500'
         }
     },
 });

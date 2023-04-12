@@ -6,13 +6,9 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import SettingsIcon from '@mui/icons-material/Settings';
-import BarChartIcon from '@mui/icons-material/BarChart';
 import MenuAtenciones from "../../molecules/SubNavBars/MenuAtenciones";
-import MenuConfiguraciones from "../../molecules/SubNavBars/MenuConfiguraciones";
-import MenuReportes from "../../molecules/SubNavBars/MenuReportes";
-import Logout from '../../../../svg/logout.svg'
-import Atenciones from '../../../../svg/Atenciones.svg'
+import Logout from '../../../../resources/svg/Logout.svg'
+import Atenciones from '../../../../resources/svg/Atenciones.svg'
 import "./_style.css"
 
 const drawerWidth = 61;
@@ -24,26 +20,6 @@ export default function PermanentDrawerLeft() {
   const HandleClick = (name) => {
     setActivo(name);
   }
-
-  const renderModule = () => {
-    switch (activo) {
-      case "Atenciones":
-        return <MenuAtenciones />;
-      case "Ajustes":
-        return <MenuConfiguraciones />;
-      case "Reportes":
-        return <MenuReportes />;
-      default:
-        return <MenuAtenciones />;
-    }
-  };
-
-
-  React.useEffect(() => {
-    console.log({activo})
-
-  })
-  
 
   return (
     <>
@@ -59,33 +35,13 @@ export default function PermanentDrawerLeft() {
         }}
       >
             <Toolbar/>
-            <Box sx={{ overflow: "auto"}}>
+            <Box sx={{ overflow: "hidden"}}>
               <List >
                   <ListItem disablePadding>
                     <ListItemButton onClick={() => HandleClick('Atenciones')} style={{justifyContent:"center", 
                   borderLeft: activo == 'Atenciones' ? '4px solid #833177': '4px solid white',}}>
                       <ListItemIcon style={{justifyContent:"center"}}>       
                         {activo == 'Atenciones' ? <Atenciones fontSize="large" className="my-svg-wrapper1"/> : <Atenciones className="my-svg-wrapper2 my-svg-wrapper1-1"/>} {/*<Atenciones fontSize="large" style={{fill: activo == 'Atenciones' ? '#833177': 'black'}}/>         */}
-                      </ListItemIcon>
-                    </ListItemButton>
-                  </ListItem>
-                  <ListItem disablePadding>
-                    <ListItemButton onClick={() => HandleClick('Ajustes')} style={{justifyContent:"center",
-                    borderLeft: activo == 'Ajustes' ? '4px solid #833177': '4px solid white',}}>
-                      <ListItemIcon style={{justifyContent:"center"}}>
-                      <SettingsIcon fontSize="large" style={{color: activo == 'Ajustes' ? 'white': '', 
-                                                            backgroundColor: activo == 'Ajustes' ? '#833177': '#F5F5F5',
-                                                            borderRadius:'20%'}}/>                
-                      </ListItemIcon>
-                    </ListItemButton>
-                  </ListItem>
-                  <ListItem disablePadding>
-                    <ListItemButton onClick={() => HandleClick('Reportes')} style={{justifyContent:"center",
-                     borderLeft: activo == 'Reportes' ? '4px solid #833177': '4px solid white',}}>
-                      <ListItemIcon style={{justifyContent:"center"}}>
-                      <BarChartIcon fontSize="large" style={{color: activo == 'Reportes' ? 'white': '', 
-                                                            backgroundColor: activo == 'Reportes' ? '#833177': 'F5F5F5',
-                                                            borderRadius:'20%'}}/>        
                       </ListItemIcon>
                     </ListItemButton>
                   </ListItem>
@@ -100,9 +56,9 @@ export default function PermanentDrawerLeft() {
               </ListItemButton>
             </ListItem>
       </Drawer>
-      <div style={{marginTop: '50px', width: '244px', height: '87vh', overflow:'auto'}}>
-            {renderModule()}
-          </div>
+      <div style={{marginTop: '60px', width: '244px', height: '40.1vw', overflowY:'scroll', position:'fixed', left: 61}}>
+            {<MenuAtenciones/>}
+      </div>
     </>
   );
 }
