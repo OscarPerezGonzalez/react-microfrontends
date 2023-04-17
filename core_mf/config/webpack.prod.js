@@ -4,20 +4,20 @@ const packageJson = require('../package.json')
 const commonConfig = require('./webpack.common')
 
 const prodConfig = {
-  mode: 'production',
-  output: {
-    filename: '[name][contenthash].js'
-  },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: 'core',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './CoreMF': './src/bootstrap'
-      },
-      shared: packageJson.dependencies
-    })
-  ]
+	mode: 'production',
+	output: {
+		filename: '[name][contenthash].js',
+	},
+	plugins: [
+		new ModuleFederationPlugin({
+			name: 'core',
+			filename: 'remoteEntry.js',
+			exposes: {
+				'./CoreMF': './src/bootstrap',
+			},
+			shared: packageJson.dependencies,
+		}),
+	],
 }
 
 module.exports = merge(commonConfig, prodConfig)
