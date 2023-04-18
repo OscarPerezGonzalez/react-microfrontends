@@ -1,0 +1,16 @@
+.MuiFormHelperText-root {
+    margin-top: 3px !important;
+    margin-bottom: -23px !important;
+    z-index: 0 !important;
+}
+
+.MuiFormLabel-root.MuiInputLabel-root {
+    z-index: 0 !important;
+  }
+
+*:disabled {
+    background-color: #833177 !important;
+    color: white !important;
+    opacity: 0.5 !important;
+}
+
