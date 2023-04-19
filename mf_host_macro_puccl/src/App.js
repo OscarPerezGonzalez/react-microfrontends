@@ -1,24 +1,20 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { Suspense } from 'react'
 import { createBrowserHistory } from 'history'
 
 import { Box, Paper } from '@mui/material'
 
 import { Route, Router, Switch } from 'react-router-dom'
-// import Spinner from 'components/SpinnerLoaderComp'
 import routes from 'routes'
 import NotFound from 'pages/NotFound'
 import StyleProvider from './context/Style'
 import Footer from './components/UI/organims/Footer/Footer'
 
-// Styles
 import './index.css'
 import Navbar from './components/UI/organims/NavBar/NavBar'
 import Header from './components/UI/organims/Header/Header'
 import GridContainer from './components/UI/atoms/GridContainer/GridContainer'
 import GridItem from './components/UI/atoms/GridItem/GridItem'
 import asesoTelefonico from './svg/Asesor_Telefónico.svg'
-// eslint-disable-next-line import/no-unresolved
 import lapiz from './svg/lapiz.svg'
 
 export const history = createBrowserHistory()

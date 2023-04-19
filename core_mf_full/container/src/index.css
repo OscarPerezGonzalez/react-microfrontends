@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./theme/fonts/futura-bt-bold.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-auxiliar {
+  color: #0ABD3E;
+}

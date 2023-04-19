@@ -1,0 +1,3 @@
+const HOST_MICROFRONT = process.env.HOST_MICROFRONT
+
+export { HOST_MICROFRONT }
