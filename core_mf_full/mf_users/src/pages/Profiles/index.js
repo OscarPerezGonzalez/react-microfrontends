@@ -40,11 +40,6 @@ export const Profiles = () => {
 		setIsOpen(true)
 	}
 
-	function afterOpenModal() {
-		// references are now sync'd and can be accessed.
-		subtitle.style.color = '#f00'
-	}
-
 	function closeModal() {
 		setIsOpen(false)
 	}
@@ -64,13 +59,7 @@ export const Profiles = () => {
 
 	return (
 		<>
-			<Modal
-				isOpen={modalIsOpen}
-				onAfterOpen={afterOpenModal}
-				onRequestClose={closeModal}
-				style={customStyles}
-				contentLabel='Example Modal'
-			>
+			<Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel='Example Modal'>
 				<div style={{ height: '450px', width: '350px' }}>
 					<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 						<TextBlack16>Agregar nuevo perfil</TextBlack16>
