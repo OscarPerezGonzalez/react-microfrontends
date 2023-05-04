@@ -15,7 +15,7 @@ export default function Header({ isSignedIn, onSignOut }) {
 				<Typography variant='h6' color='inherit' noWrap component={RouterLink} to='/'>
 					App
 				</Typography>
-				<Button onClick={onClick} color='inherit' component={RouterLink} to={isSignedIn ? '/' : '/auth/signin'}>
+				<Button onClick={onClick} color='inherit' component={RouterLink} to={isSignedIn ? '/' : '/auth/login'}>
 					{isSignedIn ? 'Logout' : 'Login'}
 				</Button>
 			</Toolbar>

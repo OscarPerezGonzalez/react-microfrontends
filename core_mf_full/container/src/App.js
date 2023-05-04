@@ -15,6 +15,7 @@ import { SimpleColumns } from './components/AssociateData/SimpleColumns'
 
 const CoreLazy = lazy(() => import('./components/Microfrontends/CoreApp'))
 const AuthLazy = lazy(() => import('./components/Microfrontends/AuthApp'))
+const UsersLazy = lazy(() => import('./components/Microfrontends/UsersApp'))
 
 export default () => {
 	const [isSignedIn, setIsSignedIn] = useState(false)
@@ -26,17 +27,18 @@ export default () => {
 			<BrowserRouter>
 				<Box sx={{ display: 'flex' }}>
 					<Header />
-					<Navbar onSignOut={() => setIsSignedIn(false)} />
-					<Footer />
+					{/* <Navbar onSignOut={() => setIsSignedIn(false)} /> */}
+					<Footer /> 
 					<Box component='main' sx={{ marginTop: '50px', flexGrow: 1 }}>
-						<AssociateData />
-						<SimpleColumns />
+						{/* <AssociateData /> */}
+						{/* <SimpleColumns /> */}
 						<Suspense fallback={<Progress />}>
 							<Switch>
-								<Route path='/auth'>
+								<Route exact path='/auth'>
 									<AuthLazy onSignIn={() => setIsSignedIn(true)} />
 								</Route>
-								<Route path='/' component={CoreLazy} />
+								<Route exact path='/plataforma' component={CoreLazy} />
+								<Route exact path='/plataforma/usuarios' component={UsersLazy} />
 							</Switch>
 						</Suspense>
 					</Box>

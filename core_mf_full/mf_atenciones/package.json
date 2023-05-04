@@ -1,5 +1,5 @@
 {
-	"name": "core_mf_atenciones",
+	"name": "mf_atenciones",
 	"version": "1.0.0",
 	"scripts": {
 		"start": "webpack serve --config config/webpack.dev.js",

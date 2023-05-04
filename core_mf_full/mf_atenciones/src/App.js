@@ -14,8 +14,8 @@ export default ({ history }) => {
 			<AtencionesProvider>
 				<Router history={history}>
 					<Switch>
-						<Route exact path='/platform/create' component={Create} />
-						<Route path='/platform/search' component={Home} />
+						<Route exact path='/plataforma/crear' component={Create} />
+						<Route path='/plataforma/buscar' component={Home} />
 					</Switch>
 				</Router>
 			</AtencionesProvider>

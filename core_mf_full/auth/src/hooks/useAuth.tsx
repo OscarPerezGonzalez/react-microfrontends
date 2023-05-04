@@ -99,7 +99,7 @@ export const useAuth = () => {
 		.then((response) => {
 			if (response.status === 200) {
 				cookies.set('idAvaya',response.data.idAvaya)
-				history.push("/platform/search");
+				history.push("/plataforma/buscar");
 			}
 		}).catch((err) => {
 			errorResp(err)
@@ -149,20 +149,6 @@ export const useAuth = () => {
 				setIsLoading(false)
 				cookies.set('isLogin', false)
 			})
-	}
-
-	const config = {
-		method: 'post',
-
-		maxBodyLength: Infinity,
-
-		url: 'https://devapigee.liverpool.com.mx/api/v1/atenciones/login',
-
-		headers: {
-			'Content-Type': 'application/json',
-
-			'x-api-key': '7eR8fTTlM4ZCfCUbepJLQX5DE5tyfMfSjUyodMQ02QpzSN2F', // scope: "READ", // grant_type: "client_credentials", // Authorization: //   "Basic TGVzR3NINnpGbW1qdUMzRkhSSGE2Z3dJZ2oxRllmaDJNc05YWGdVaUFETExob3lTOjB1ZHZMVmpPekRLSDRodVlQbFlhNngxTjdUbm5kM1NRRXBpclFGUzkxREdNOWNpMXVnRUFRa2d1M2pXbTdUQ0c=",
-		},
 	}
 
 	//Mandamos a llamar a la API y dependiendo de eso procedemos a loguearnos o mostrar error
