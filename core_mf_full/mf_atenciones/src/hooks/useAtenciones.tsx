@@ -55,6 +55,17 @@ export const useAtenciones = () => {
 
     //Funciones para el control le interacciones y data
 
+    const errorResp = err => {
+		if (err.response) {
+			setErrors({ error: true, errorMsg: 'Error ' + err.response.data.codigo + ' ' + err.response.data.descripcion })
+		} else if (err.request) {
+			setErrors({
+				error: true,
+				errorMsg: 'Error al Ingresar, Intente Nuevamente',
+			})
+		}
+	}
+
 	const handleInteracciones = (event, data) => {
         console.log(event)
         console.log(data)
@@ -105,6 +116,7 @@ export const useAtenciones = () => {
                 setFirstTime(true)
                 setIsLoading(false)
             }
+            errorResp(err)
         })
     }
 

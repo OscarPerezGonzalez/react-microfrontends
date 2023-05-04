@@ -99,7 +99,7 @@ export const useAuth = () => {
 		.then((response) => {
 			if (response.status === 200) {
 				cookies.set('idAvaya',response.data.idAvaya)
-				history.push("/plataforma/buscar");
+				history.push("/plataforma/atenciones/buscar");
 			}
 		}).catch((err) => {
 			errorResp(err)

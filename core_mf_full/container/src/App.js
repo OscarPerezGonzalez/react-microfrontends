@@ -34,11 +34,11 @@ export default () => {
 						{/* <SimpleColumns /> */}
 						<Suspense fallback={<Progress />}>
 							<Switch>
-								<Route exact path='/auth'>
+								<Route path='/auth'>
 									<AuthLazy onSignIn={() => setIsSignedIn(true)} />
 								</Route>
-								<Route exact path='/plataforma' component={CoreLazy} />
-								<Route exact path='/plataforma/usuarios' component={UsersLazy} />
+								<Route path='/plataforma/atenciones' component={CoreLazy} />
+								{/* <Route  path='/plataforma/configuracion' component={UsersLazy} /> */}
 							</Switch>
 						</Suspense>
 					</Box>

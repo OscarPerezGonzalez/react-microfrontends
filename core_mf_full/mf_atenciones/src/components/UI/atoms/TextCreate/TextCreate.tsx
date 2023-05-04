@@ -11,7 +11,7 @@ const TextCreateComponent = () => {
 
     const handleCreate= (event) => {
         event.preventDefault();
-        history.push({pathname: '/plataforma/crear', state: client})
+        history.push({pathname: '/plataforma/atenciones/crear', state: client})
     }
 
     return (

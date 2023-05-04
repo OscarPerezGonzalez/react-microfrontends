@@ -169,8 +169,8 @@ export default function MenuAtenciones() {
               <ListItemButton onClick={(e) => handleInteracciones(e, item)}>
                 <WhatssApp />
                 &nbsp;
-                <p className="first_text">&nbsp;{item.numeroCelular}</p>
-                <p className="second_text">Hace 3 min</p>
+                <a className="first_text">&nbsp;{item.numeroCelular}</a>
+                <a className="second_text">Hace 3 min</a>
               </ListItemButton>
             </ListItem>
             <Divider style={{marginTop: '5px', marginBottom: '5px'}}/>
