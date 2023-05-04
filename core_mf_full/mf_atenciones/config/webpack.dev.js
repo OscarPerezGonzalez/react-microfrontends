@@ -16,10 +16,10 @@ const devConfig = {
 	},
 	plugins: [
 		new ModuleFederationPlugin({
-			name: 'auth',
+			name: 'core',
 			filename: 'remoteEntry.js',
 			exposes: {
-				'./AuthApp': './src/bootstrap',
+				'./CoreApp': './src/bootstrap',
 			},
 			shared: packageJson.dependencies,
 		}),

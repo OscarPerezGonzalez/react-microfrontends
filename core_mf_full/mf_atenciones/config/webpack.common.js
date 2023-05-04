@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
 module.exports = {
 	resolve: {
 		extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
@@ -23,12 +22,8 @@ module.exports = {
 				use: 'ts-loader'
 			},
 			{
-				test: /\.(css|s(a|c)ss)$/i,
+				test: /\.(css|s(a|c)ss)$/,
 				use: ['style-loader', 'css-loader', 'sass-loader'],
-			},
-			{
-				test: /\.(woff|woff2|eot|ttf|otf)$/i,
-				type: 'asset/resource',
 			},
 			{
 				test: /\.svg$/,
@@ -36,7 +31,11 @@ module.exports = {
 				  loader: "@svgr/webpack",
 				}
 			  },
-			  {
+			{
+				test: /\.(woff|woff2|eot|ttf|otf)$/i,
+				type: 'asset/resource',
+			},
+			{
 				test: /\.(gif|jpg|png)$/,
 				use:{
 				  loader: "file-loader",
