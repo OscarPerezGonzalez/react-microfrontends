@@ -1,0 +1,37 @@
+.MuiListItemText-primary {
+    font-weight: 400 !important;
+}
+
+.MuiListItemText-primary:hover {
+    font-weight: bold !important;
+}
+
+.MuiListItem-root:hover {
+    font-weight:bold !important;
+}
+
+.MuiButtonBase-root:hover {
+    font-weight: bold !important;
+}
+
+.MuiList-root:hover {
+    font-weight: bold !important;
+}
+
+.second_text {
+    font-size: 8px;
+    font-weight: 400;
+    position: absolute;
+    left: 76%;
+    margin-top: -1px;
+}
+
+.first_text {
+    font-size: 14px !important;
+    font-weight: 400;
+    justify-self: right;
+    text-overflow: ellipsis;
+    max-width: 17ch; 
+    white-space: nowrap;
+    overflow: hidden;
+}

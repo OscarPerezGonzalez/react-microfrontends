@@ -1,20 +1,14 @@
 import React from 'react'
-import { Button, Container, Typography } from '@mui/material'
-import styled from 'styled-components'
+import { AuthProvider } from '../providers/AuthProvider'
+import MainComponent from '../components/UI/organisms/Main/Main'
 
-const ContainerCustom = styled(Container)`
-	background-color: #ffdcb6;
-`
 
 export default function SignIn({ onSignIn }) {
 	return (
-		<main>
-			<ContainerCustom>
-				<Typography>Login</Typography>
-				<Button variant='contained' onClick={onSignIn}>
-					Action Login
-				</Button>
-			</ContainerCustom>
-		</main>
+		<>
+			<AuthProvider>
+				<MainComponent/>
+			</AuthProvider>
+		</>
 	)
 }

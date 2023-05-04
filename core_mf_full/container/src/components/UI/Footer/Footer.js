@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 		marginRight: '10px',
 	},
 	typography: {
-		marginRight: '-10rem',
+		marginRight: '-7rem',
 		paddingBottom: '1rem',
 	},
 	textField: {

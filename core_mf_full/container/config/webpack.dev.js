@@ -20,6 +20,7 @@ const devConfig = {
 			remotes: {
 				core: `core@${process.env.HOST_MF_CORE}`,
 				auth: `auth@${process.env.HOST_MF_AUTH}`,
+				users: `users@${process.env.HOST_MF_USERS}`
 			},
 			shared: packageJson.dependencies,
 		}),

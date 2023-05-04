@@ -11,7 +11,7 @@ const devConfig = {
 		publicPath: process.env.HOST_MICROFRONT,
 	},
 	devServer: {
-		port: 8082,
+		port: process.env.PORT,
 		historyApiFallback: true,
 	},
 	plugins: [
