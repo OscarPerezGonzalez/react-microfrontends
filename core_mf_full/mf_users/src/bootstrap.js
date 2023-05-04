@@ -27,7 +27,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 }
 
 if (process.env.NODE_ENV === 'development') {
-	const devRoot = document.querySelector('#root')
+	const devRoot = document.querySelector('#_users-dev-root')
 
 	if (devRoot) {
 		mount(devRoot, { defaultHistory: createBrowserHistory() })
