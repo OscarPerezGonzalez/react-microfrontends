@@ -20,7 +20,7 @@ const customStyles = {
 	},
 }
 
-Modal.setAppElement('#_users-dev-root')
+Modal.setAppElement('#root')
 
 export const Profiles = () => {
 	const {
