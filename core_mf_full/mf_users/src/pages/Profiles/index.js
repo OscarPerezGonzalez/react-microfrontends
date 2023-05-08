@@ -1,28 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Typography } from '@mui/material'
-import Modal from 'react-modal'
 import { useGetDataTable } from '../../hooks/useGetDataTable'
 import { TableData } from '../../components/TableData'
 import { RowDataProfiles } from '../../components/RowDataProfiles'
-import { ButtonPurple, Separator, TextBlack16, TextBlackXl } from '../../Styles/globals'
+import { ButtonPurple, Separator, TextBlackXl } from '../../Styles/globals'
 import { Navigation } from './Styles'
 import IconSeparator from '../../assets/svg/separator.svg'
-import IconClose from '../../assets/svg/close.svg'
-
-const customStyles = {
-	content: {
-		top: '50%',
-		left: '50%',
-		right: 'auto',
-		bottom: 'auto',
-		marginRight: '-50%',
-		transform: 'translate(-50%, -50%)',
-	},
-}
-
-Modal.setAppElement('#root')
+import { AddProfile } from '../../components/AddProfile'
 
 export const Profiles = () => {
+	const headCells = [
+		{ id: 'nombrePerfil', numeric: false, label: 'Nombre del Perfil' },
+		{ id: 'puesto', numeric: false, label: 'Puesto' },
+		{ id: 'codigo', numeric: false, label: 'Código' },
+		{ id: null, numeric: false, label: 'Acciones' },
+	]
+
 	const {
 		handleRequestSort,
 		order,
@@ -34,7 +27,7 @@ export const Profiles = () => {
 		handleChangePage,
 		handleChangeRowsPerPage,
 	} = useGetDataTable('profiles')
-	const [modalIsOpen, setIsOpen] = React.useState(false)
+	const [modalIsOpen, setIsOpen] = useState(false)
 
 	function openModal() {
 		setIsOpen(true)
@@ -44,29 +37,13 @@ export const Profiles = () => {
 		setIsOpen(false)
 	}
 
-	const headCells = [
-		{ id: 'nombrePerfil', numeric: false, label: 'Nombre del Perfil' },
-		{ id: 'puesto', numeric: false, label: 'Puesto' },
-		{ id: 'codigo', numeric: false, label: 'Código' },
-		{ id: null, numeric: false, label: 'Acciones' },
-	]
-
-	const rowData = visibleRows
-		? visibleRows.map((profile, index) => (
-				<RowDataProfiles profile={profile} key={index} countCells={headCells.length} />
-		  ))
-		: null
+	const createProfile = () => {
+		setIsOpen(false)
+	}
 
 	return (
 		<>
-			<Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel='Example Modal'>
-				<div style={{ height: '450px', width: '350px' }}>
-					<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-						<TextBlack16>Agregar nuevo perfil</TextBlack16>
-						<img src={IconClose} alt='close' onClick={closeModal} />
-					</div>
-				</div>
-			</Modal>
+			<AddProfile modalIsOpen={modalIsOpen} closeModal={closeModal} createProfile={createProfile} />
 			<Container>
 				<Navigation>
 					<div style={{ display: 'flex', alignItems: 'center' }}>
@@ -93,7 +70,13 @@ export const Profiles = () => {
 					handleChangePage={handleChangePage}
 					handleChangeRowsPerPage={handleChangeRowsPerPage}
 					page={page}
-					rowData={rowData}
+					rowData={
+						visibleRows
+							? visibleRows.map((profile, index) => (
+									<RowDataProfiles profile={profile} key={index} countCells={headCells.length} />
+							  ))
+							: null
+					}
 				/>
 			</Container>
 		</>
