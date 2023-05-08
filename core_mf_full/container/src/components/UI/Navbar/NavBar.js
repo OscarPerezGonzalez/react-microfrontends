@@ -19,9 +19,6 @@ const drawerWidth = 61
 export default function PermanentDrawerLeft({ onSignOut }) {
 	const [activo, setActivo] = React.useState('Atenciones')
 
-	const HandleClick = () => {
-		onSignOut()
-	}
 
 	const renderModule = () => {
 		switch (activo) {
@@ -58,7 +55,7 @@ export default function PermanentDrawerLeft({ onSignOut }) {
 					<List>
 						<ListItem disablePadding>
 							<ListItemButton
-								onClick={() => HandleClick('Atenciones')}
+								onClick={() => setActivo('Atenciones')}
 								style={{
 									justifyContent: 'center',
 									borderLeft: activo === 'Atenciones' ? '4px solid #833177' : '4px solid white',
@@ -71,7 +68,7 @@ export default function PermanentDrawerLeft({ onSignOut }) {
 						</ListItem>
 						<ListItem disablePadding>
 							<ListItemButton
-								onClick={() => HandleClick('Ajustes')}
+								onClick={() => setActivo('Ajustes')}
 								style={{
 									justifyContent: 'center',
 									borderLeft: activo === 'Ajustes' ? '4px solid #833177' : '4px solid white',
@@ -84,7 +81,7 @@ export default function PermanentDrawerLeft({ onSignOut }) {
 						</ListItem>
 						<ListItem disablePadding>
 							<ListItemButton
-								onClick={() => HandleClick('Reportes')}
+								onClick={() => setActivo('Reportes')}
 								style={{
 									justifyContent: 'center',
 									borderLeft: activo === 'Reportes' ? '4px solid #833177' : '4px solid white',
@@ -106,7 +103,7 @@ export default function PermanentDrawerLeft({ onSignOut }) {
 				</Box>
 				<ListItem disablePadding style={{ marginTop: 'auto', marginBottom: '50px' }}>
 					<ListItemButton
-						onClick={() => HandleClick('Logout')}
+						onClick={() => setActivo('Logout')}
 						style={{
 							justifyContent: 'center',
 							borderLeft: activo === 'Logout' ? '4px solid white' : '4px solid white',

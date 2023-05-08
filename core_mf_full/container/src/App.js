@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom'
 
 import { Box } from '@mui/material'
 import StyleProvider from './context/Style'
@@ -21,24 +21,25 @@ export default () => {
 	const [isSignedIn, setIsSignedIn] = useState(false)
 	console.log('isSignedIn:::::::::', isSignedIn)
 	console.log('HOST_CONTAINER:::::', HOST_CONTAINER)
+	const location = window.location.pathname
+	console.log(location)
 
 	return (
 		<StyleProvider>
 			<BrowserRouter>
 				<Box sx={{ display: 'flex' }}>
 					<Header />
-					{/* <Navbar onSignOut={() => setIsSignedIn(false)} /> */}
+					{(!location.includes('/plataforma/atenciones') && !location.includes('/auth')) && <Navbar onSignOut={() => setIsSignedIn(false)} /> }
 					<Footer /> 
-					<Box component='main' sx={{ marginTop: '50px', flexGrow: 1 }}>
-						{/* <AssociateData /> */}
-						{/* <SimpleColumns /> */}
+					<Box component='main' sx={{ marginTop: '50px', marginBottom: '50px !important', flexGrow: 1 }}>
+					{(!location.includes('/plataforma/atenciones') && !location.includes('/auth')) && (<><AssociateData /><SimpleColumns /></>)}
 						<Suspense fallback={<Progress />}>
 							<Switch>
 								<Route path='/auth'>
 									<AuthLazy onSignIn={() => setIsSignedIn(true)} />
 								</Route>
 								<Route path='/plataforma/atenciones' component={CoreLazy} />
-								{/* <Route  path='/plataforma/configuracion' component={UsersLazy} /> */}
+								<Route path='/plataforma/configuracion' component={UsersLazy} />
 							</Switch>
 						</Suspense>
 					</Box>

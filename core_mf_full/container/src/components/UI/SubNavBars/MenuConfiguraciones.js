@@ -16,12 +16,12 @@ export default function MenuConfiguraciones() {
 			>
 				Configuraciones
 			</Typography>
-			<Button sx={{ typography: theme => theme.typography.name, color: 'black', justifyContent: 'initial' }} fullWidth>
+			<Button href='/plataforma/configuracion/usuarios' sx={{ typography: theme => theme.typography.name, color: 'black', justifyContent: 'initial' }} fullWidth>
 				{' '}
 				Usuarios
 			</Button>
 			<Divider></Divider>
-			<Button sx={{ typography: theme => theme.typography.name, color: 'black', justifyContent: 'initial' }} fullWidth>
+			<Button href='/plataforma/configuracion/perfiles' sx={{ typography: theme => theme.typography.name, color: 'black', justifyContent: 'initial' }} fullWidth>
 				{' '}
 				Perfiles
 			</Button>

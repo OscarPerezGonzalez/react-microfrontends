@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react'
-import { clientesApi } from '../api/interaccionesApi'
+import { apicreate, clientesApi, headers_auth_create } from '../api/interaccionesApi'
 import Cookies from 'universal-cookie'
+import { KEY, SECRET } from '../constants/environments';
 
 
 export interface ClienteAtenciones {
@@ -14,6 +15,7 @@ export interface ClienteAtenciones {
 
 export interface Errors {
 	error: boolean
+    severity: string
 	errorMsg: string
 }
 
@@ -24,7 +26,9 @@ export interface UseAtencionesHook {
 
 const cookies = new Cookies()
 
+
 export const useAtenciones = () => {
+
 
 	//Declaramos Params, headers para peticion axios
 
@@ -44,23 +48,24 @@ export const useAtenciones = () => {
 	const [isLoading, setIsLoading] = useState(false)
     const [firstTime, setFirstTime] = useState(true)
 
-    const params = new URLSearchParams();
-    params.append('X-LVP-PAG', '1');
-    params.append('X-LVP-RPAG', '100');
-    params.append('correoElectronico', client.correoElectronico);
+    const params_search = new URLSearchParams();
+    params_search.append('X-LVP-PAG', '1');
+    params_search.append('X-LVP-RPAG', '100');
+    params_search.append('correoElectronico', client.correoElectronico);
 
     const [data, setData] = useState([])
     const [dataOn, setdataOn] = useState([])
-    const [errors, setErrors] = useState({ error: false, errorMsg: '' })
+    const [errors, setErrors] = useState({ error: false, severity: "error", errorMsg: '' })
 
     //Funciones para el control le interacciones y data
 
     const errorResp = err => {
 		if (err.response) {
-			setErrors({ error: true, errorMsg: 'Error ' + err.response.data.codigo + ' ' + err.response.data.descripcion })
+			setErrors({ error: true, severity: 'error', errorMsg: 'Error ' + err.response.data.codigo + ' ' + err.response.data.descripcion })
 		} else if (err.request) {
 			setErrors({
 				error: true,
+                severity: 'error',
 				errorMsg: 'Error al Ingresar, Intente Nuevamente',
 			})
 		}
@@ -69,8 +74,8 @@ export const useAtenciones = () => {
 	const handleInteracciones = (event, data) => {
         console.log(event)
         console.log(data)
-        params.delete('correoElectronico')
-        params.append('correoElectronico',data.correoElectronico)
+        params_search.delete('correoElectronico')
+        params_search.append('correoElectronico',data.correoElectronico)
         setClient(client => ({
             ...client,
             ...data
@@ -100,7 +105,7 @@ export const useAtenciones = () => {
 		event.preventDefault()
         setIsLoading(true)
         setToken(cookies.get('auth'))
-        await clientesApi.get('', {params: params})
+        await clientesApi.get('',{headers: {Authorization: `Bearer ${cookies.get('auth')}`} ,params: params_search})
         .then((response) => {
             if(response.status === 200) {
                 setData(response.data)
@@ -115,7 +120,59 @@ export const useAtenciones = () => {
             }else if (err.response.data.codigo == 401){
                 setFirstTime(true)
                 setIsLoading(false)
+                errorResp(err)
+            }else if(err.respose.data.codigo != 400){
+                errorResp(err)
             }
+        })
+    }
+
+    const bodyCreate = {
+        apellidoMaterno: client.apellidoMaterno,
+        apellidoPaterno: client.apellidoPaterno,
+        correoElectronico: client.correoElectronico,
+        idTipoCliente: "02",
+        codigoOrganizacion: "LIVERPOOL",
+        telefono: {
+            numero: client.numeroCelular,
+            alias: "CELULAR"
+        },
+        primerNombre: client.nombre.split(" ")[0],
+        segundoNombre: client.nombre.split(" ")[1] || ""
+    }
+
+    const handleClientCreate = async event => {
+		event.preventDefault()
+        setIsLoading(true)
+        await apicreate.get('',{headers: headers_auth_create, auth: {username: KEY, password: SECRET}})
+        .then((response) => {
+            if (response.status === 200) {
+                clientesApi
+                .post('', bodyCreate, {headers: {Authorization: `Bearer ${response.data.access_token}`} })
+                .then((response) => {
+                    console.log(response)
+                    if (response.status === 200) {
+                        setIsLoading(false)
+                        setErrors({ error: true, severity: "success", errorMsg: response.data.mensaje })
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                    if (err.response.data.codigo == 400) {
+                        setIsLoading(false)
+                        errorResp(err)
+                    } else if (err.response.data.codigo == 401) {
+                        setIsLoading(false)
+                        errorResp(err)
+                    } else if (err.response.data.codigo != 400) {
+                        setIsLoading(false)
+                        errorResp(err)
+                    }
+                })
+            }
+        })
+        .catch ((err) => {
+            setIsLoading(false)
             errorResp(err)
         })
     }
@@ -125,6 +182,7 @@ export const useAtenciones = () => {
         dataOn,
         client,
         errors,
+        setErrors,
         handleInteracciones,
         handleClientInfo,
         handleClientSearch,
@@ -132,7 +190,8 @@ export const useAtenciones = () => {
         token,
         setToken,
         firstTime,
-        setFirstTime //remover cuando se tenga el flujo con API correctamente
+        setFirstTime,
+        handleClientCreate
     }
 }
 

@@ -15,7 +15,7 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
-import { makeStyles, useTheme, DefaultTheme } from "@mui/styles";
+import { makeStyles, DefaultTheme } from "@mui/styles";
 import "./_styles.css";
 import CustomButtonB from "../Button/CustomButtonB";
 import { useAtencionesContext } from "../../../../providers/AtencionesProvider";
@@ -153,8 +153,8 @@ const CustomTable = () => {
   };
 
   return (
-    <Box style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      <TableContainer component={Paper} style={{ height: "61%" }}>
+    <Box style={{ display: "flex", flexDirection: "column", height: "105%" }}>
+      <TableContainer component={Paper} style={{ height: "80%" }}>
         <Table>
           <TableHead style={{ fontWeight: "bolder" }}>
             <TableRow>
@@ -173,12 +173,12 @@ const CustomTable = () => {
               ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : data
             ).map((item) => (
-              <TableRow key={item.id}>
-                <TableCell className={classes.cell}>{item.primerNombre}</TableCell>
+              <TableRow key={item.id_cliente}>
+                <TableCell className={classes.cell}>{item.primerNombre +" "} {(item.segundo_nombre == null) ? "" : item.segundoNombre}</TableCell>
                 <TableCell className={classes.cell}>{item.apellidoPaterno}</TableCell>
                 <TableCell className={classes.cell}>{item.apellidoMaterno}</TableCell>
                 <TableCell className={classes.cell}>{item.correoElectronico}</TableCell>
-                {/* <TableCell className={classes.cell}>{item.telefonos}</TableCell> */}
+                {/* <TableCell className={classes.cell}>{item.telefonos.filter((item) => )}</TableCell> */}
                 <TableCell>
                   <CustomButtonB children={"Iniciar Atención"} />
                 </TableCell>

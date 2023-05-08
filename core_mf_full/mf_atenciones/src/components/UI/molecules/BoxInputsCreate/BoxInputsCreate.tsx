@@ -8,7 +8,7 @@ import { Alert, Backdrop, Box, CircularProgress, Snackbar } from "@mui/material"
 import './_styles.css'
 import { useAtencionesContext } from "../../../../providers/AtencionesProvider";
 import { makeStyles } from "@mui/styles";
-import { useLocation } from 'react-router-dom';
+import TextReturnComponent from "../../atoms/TextReturn/TextReturn";
 
 const useStyles = makeStyles(() => ({
   backDrop: {
@@ -38,7 +38,7 @@ const BoxInputsCreate = props => {
 
   const [evento, setEvento] = useState({})
 
-  const {errors, handleClientInfo, handleClientSearch, client, setErrors, isLoading, setFirstTime, firstTime} = useAtencionesContext();
+  const {errors, handleClientInfo, client, setErrors, isLoading, handleClientCreate} = useAtencionesContext();
   
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
@@ -58,12 +58,13 @@ const BoxInputsCreate = props => {
       numeroCelular: client.numeroCelular
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-            //handleClientSearch(evento)
+    onSubmit: () => {
+      handleClientCreate(evento)
     },
   });
 
   return (
+    <><TextReturnComponent/>
     <div
       style={{
         position: "absolute",
@@ -79,81 +80,86 @@ const BoxInputsCreate = props => {
     >
       <CustomIconTitle />
       <form onSubmit={e => {
-        formik.handleSubmit(e)
-         setEvento(e)}}>
+        formik.handleSubmit(e);
+        setEvento(e);
+      } }>
         <Box display="flex">
-          <CustomTextInput 
-          id={"nombre"}
-          name={"nombre"}
-          label={"Nombre"}
-          value={(client.nombre = formik.values.nombre)}
-          onChange={e => {
-            handleClientInfo(e)
-            formik.handleChange(e)}}
-          error={formik.touched.nombre && Boolean(formik.errors.nombre)}
-          helperText={formik.touched.nombre && formik.errors.nombre}/>
-          <CustomTextInput 
-          id={"apellidoPaterno"}
-          name={"apellidoPaterno"}
-          label={"Apellido Paterno"}
-          value={(client.apellidoPaterno = formik.values.apellidoPaterno)}
-          onChange={e => {
-            handleClientInfo(e)
-            formik.handleChange(e)
-          }}
-          error={formik.touched.apellidoPaterno && Boolean(formik.errors.apellidoPaterno)}
-          helperText={formik.touched.apellidoPaterno && formik.errors.apellidoPaterno}/>
-          <CustomTextInput 
-          id={"apellidoMaterno"}
-          name={"apellidoMaterno"}
-          label={"Apellido Materno"}
-          value={(client.apellidoMaterno = formik.values.apellidoMaterno)}
-          onChange={e => {
-            handleClientInfo(e)
-            formik.handleChange(e)
-          }}
-          error={formik.touched.apellidoMaterno && Boolean(formik.errors.apellidoMaterno)}
-          helperText={formik.touched.apellidoMaterno && formik.errors.apellidoMaterno}/>
+          <CustomTextInput
+            id={"nombre"}
+            name={"nombre"}
+            label={"Nombre"}
+            value={(client.nombre = formik.values.nombre)}
+            onChange={e => {
+              handleClientInfo(e);
+              formik.handleChange(e);
+            } }
+            error={formik.touched.nombre && Boolean(formik.errors.nombre)}
+            helperText={formik.touched.nombre && formik.errors.nombre} />
+          <CustomTextInput
+            id={"apellidoPaterno"}
+            name={"apellidoPaterno"}
+            label={"Apellido Paterno"}
+            value={(client.apellidoPaterno = formik.values.apellidoPaterno)}
+            onChange={e => {
+              handleClientInfo(e);
+              formik.handleChange(e);
+            } }
+            error={formik.touched.apellidoPaterno && Boolean(formik.errors.apellidoPaterno)}
+            helperText={formik.touched.apellidoPaterno && formik.errors.apellidoPaterno} />
+          <CustomTextInput
+            id={"apellidoMaterno"}
+            name={"apellidoMaterno"}
+            label={"Apellido Materno"}
+            value={(client.apellidoMaterno = formik.values.apellidoMaterno)}
+            onChange={e => {
+              handleClientInfo(e);
+              formik.handleChange(e);
+            } }
+            error={formik.touched.apellidoMaterno && Boolean(formik.errors.apellidoMaterno)}
+            helperText={formik.touched.apellidoMaterno && formik.errors.apellidoMaterno} />
         </Box>
         <Box display="flex">
-          <CustomTextInput 
-          id={"correo"}
-          name={"correo"}
-          label={"Correo Electrónico"}
-          value={formik.values.correoElectronico}
-          onChange={formik.handleChange}
-          error={formik.touched.correoElectronico && Boolean(formik.errors.correoElectronico)}
-          helperText={formik.touched.correoElectronico && formik.errors.correoElectronico} />
-          <CustomTextInput 
-          id={"correoElectronico"}
-          name={"correoElectronico"}
-          label={"Correo Electrónico"}
-          value={(client.correoElectronico = formik.values.correoElectronico)}
-          onChange={e => {
-            handleClientInfo(e)
-            formik.handleChange(e)
-          }}
-          error={formik.touched.numeroCelular && Boolean(formik.errors.numeroCelular)}
-          helperText={formik.touched.numeroCelular && formik.errors.numeroCelular} />
-          <CustomButtonA style={{ paddingRight: "30px" }} children={"Crear Cliente"} type='submit'/>
+          <CustomTextInput
+            id={"correoElectronico"}
+            name={"correoElectronico"}
+            label={"Correo Electrónico"}
+            value={(client.correoElectronico = formik.values.correoElectronico)}
+            onChange={e => {
+              handleClientInfo(e);
+              formik.handleChange(e);
+            } }
+            error={formik.touched.correoElectronico && Boolean(formik.errors.correoElectronico)}
+            helperText={formik.touched.correoElectronico && formik.errors.correoElectronico} />
+          <CustomTextInput
+            id={"numeroCelular"}
+            name={"numeroCelular"}
+            label={"Telefono"}
+            value={(client.numeroCelular = formik.values.numeroCelular)}
+            onChange={e => {
+              handleClientInfo(e);
+              formik.handleChange(e);
+            } }
+            error={formik.touched.numeroCelular && Boolean(formik.errors.numeroCelular)}
+            helperText={formik.touched.numeroCelular && formik.errors.numeroCelular} />
+          <CustomButtonA style={{ paddingRight: "30px" }} children={"Crear Cliente"} type='submit' />
         </Box>
       </form>
       <div style={{ position: 'fixed' }}>
-				<Backdrop
-					sx={{
-						color: '#833177',
-						zIndex: theme => theme.zIndex.drawer + 1,
-					}}
-					classes={{ root: classes.backDrop }}
-					open={isLoading}
-				>
-					<CircularProgress style={{ color: '#833177' }} />
-				</Backdrop>
-			</div> 
+        <Backdrop
+          sx={{
+            color: '#833177',
+            zIndex: theme => theme.zIndex.drawer + 99999,
+          }}
+          classes={{ root: classes.backDrop }}
+          open={isLoading}
+        >
+          <CircularProgress style={{ color: '#833177' }} />
+        </Backdrop>
+      </div>
       <Snackbar open={errors.error} autoHideDuration={2000} onClose={handleClose}>
-        <Alert onClose={handleClose} sx={{position: 'fixed',left: 0,top: '80%'}} severity='error'>{errors.errorMsg}</Alert>
+        <Alert onClose={handleClose} sx={{ position: 'fixed', left: 0, top: '80%' }} severity={errors.severity}>{errors.errorMsg}</Alert>
       </Snackbar>
-    </div>
+    </div></>
   );
 };
 

@@ -163,7 +163,7 @@ export default function MenuAtenciones() {
         </Badge>
       </Typography>
       <List component="nav" aria-labelledby="nested-list-one" disablePadding>
-        {dataAnteriores.map((item) => (
+        {dataAnteriores.map((item, index) => (
           <>
             <ListItem disablePadding key={item.id}>
               <ListItemButton onClick={(e) => handleInteracciones(e, item)}>

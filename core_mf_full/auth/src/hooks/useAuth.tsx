@@ -163,6 +163,7 @@ export const useAuth = () => {
 			)
 			.then((response) => {
 				if (response.status === 200) {
+					cookies.set('user_data', response.data)
 					setRespLogin(response.data)
 					cookies.set('user', userLogin.usuario)
 					apiAuth(response.data.idPerfilOperador)

@@ -44,7 +44,7 @@ const BoxInputsForm = () => {
   const classes = useStyles();
   const [evento, setEvento] = useState({})
 
-  const {errors, handleClientInfo, handleClientSearch, client, setErrors, isLoading, setFirstTime, firstTime} = useAtencionesContext();
+  const {errors, handleClientInfo, handleClientSearch, client, setErrors, isLoading} = useAtencionesContext();
 
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
@@ -180,7 +180,7 @@ const BoxInputsForm = () => {
 				<Backdrop
 					sx={{
 						color: '#833177',
-						zIndex: theme => theme.zIndex.drawer + 1,
+						zIndex: theme => theme.zIndex.drawer + 99999,
 					}}
 					classes={{ root: classes.backDrop }}
 					open={isLoading}
