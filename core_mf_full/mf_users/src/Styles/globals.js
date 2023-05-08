@@ -77,6 +77,12 @@ export const TextGrayMid = styled(Typography)`
 	color: #666666;
 `
 
+export const TextPurpleMid = styled(Typography)`
+	font-weight: 700 !important;
+	font-size: 14px !important;
+	color: #833177;
+`
+
 export const TextGreen = styled(Typography)`
 	font-weight: 400;
 	font-size: 12px;
@@ -91,6 +97,15 @@ export const TextRed = styled(Typography)`
 
 export const ButtonPurple = styled.button`
 	background-color: #833177;
+	border-radius: 4px;
+	color: #fff;
+	border: 0;
+	padding: 8px 16px;
+	cursor: pointer;
+`
+
+export const ButtonGray = styled.button`
+	background-color: #ada8a8;
 	border-radius: 4px;
 	color: #fff;
 	border: 0;
