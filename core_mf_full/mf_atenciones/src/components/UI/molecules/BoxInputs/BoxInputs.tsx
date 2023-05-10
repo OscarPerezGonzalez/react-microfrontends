@@ -18,11 +18,10 @@ const useStyles = makeStyles(() => ({
 const validationSchema = yup.object({
   correoElectronico: yup
     .string()
-    .email("Introduce un correo Válido")
-    .required("El correo es requerido"),
-  nombre: yup.string().required("El Nombre es Requerido"),
-  apellidoPaterno: yup.string().required("El Apellido Paterno es Requerido"),
-  apellidoMaterno: yup.string().notRequired(),
+    .email("Introduce un correo Válido"),
+  nombre: yup.string(),
+  apellidoPaterno: yup.string(),
+  apellidoMaterno: yup.string(),
   numeroCelular: yup.string().matches(/^[0-9]+$/, "Deben de ser solo digitos").min(10,"Deben ser 10 números").max(10,"Deben ser 10 números"),
   rfc: yup.string(),
   no_tarjeta: yup.string(),

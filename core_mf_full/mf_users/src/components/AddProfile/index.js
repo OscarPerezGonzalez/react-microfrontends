@@ -15,7 +15,7 @@ const customStyles = {
 	},
 }
 
-Modal.setAppElement('#_modal')
+Modal.setAppElement('#root')
 
 export const AddProfile = ({ modalIsOpen, closeModal, createProfile }) => {
 	const [formData, setFormData] = useState({

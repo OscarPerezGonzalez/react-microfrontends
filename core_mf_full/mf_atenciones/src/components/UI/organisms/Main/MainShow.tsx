@@ -48,11 +48,11 @@ const MainComponentShow = () => {
                   <GridItem md={-1}><Asesor_telefonico style={{marginRight: '10px'}}/></GridItem>
                   <GridItem md={7}>
                   <GridContainer sx={{typography : (theme) => theme.typography.main_text}}>
-                      <GridItem md={2.5} sx={{typography : (theme) => theme.typography.name}} color='#833177'>{data_user.nombre + " " + data_user.apellidoPaterno + " " +data_user.apellidoMaterno}</GridItem>
+                      {/* <GridItem md={2.5} sx={{typography : (theme) => theme.typography.name}} color='#833177'>{data_user.nombre + " " + data_user.apellidoPaterno + " " +data_user.apellidoMaterno}</GridItem>
                       <GridItem md={9} style={{marginTop: '2px'}}><strong>Asesor </strong>{data_user.idPerfilOperador}</GridItem>
                       <GridItem md={2.5} style={{marginTop: '2px'}}><strong>ID Avaya:</strong>{cookies.get('idAvaya')} <Lapiz/></GridItem>
                       <GridItem md={3} style={{marginTop: '2px'}}><strong>Skill Activo:</strong> Seguimientos</GridItem>
-                      <GridItem md={2.5} style={{marginTop: '2px'}}><strong>Extensión:</strong> <span className="text-auxiliar">Activo</span></GridItem>
+                      <GridItem md={2.5} style={{marginTop: '2px'}}><strong>Extensión:</strong> <span className="text-auxiliar">Activo</span></GridItem> */}
                     </GridContainer>
                   </GridItem>
                 </GridContainer>

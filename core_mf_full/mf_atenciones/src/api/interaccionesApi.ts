@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie'
 const cookies = new Cookies()
 
 const BASE_URL_CLIENTES = URL_API_CLIENTES
-const headers_auth ={
+export const headers_auth ={
 	scope: SCOPE,
 	grant_type: GRANT_TYPE,
 }
@@ -25,14 +25,14 @@ export const apicreate = axios.create({
 	baseURL: URL_API_AUTH
 })
 
-
 clientesApi.interceptors.response.use(
-	(response) => {
+	response => {
 		return response
 	},
-	async (error) => {
+	function (error) {
+		const originalRequest = error.config;
 		if(error.response.status === 401){
-			await axios
+			return axios
 			.get(URL_API_AUTH,
 				{headers: 
 				headers_auth,
@@ -40,15 +40,12 @@ clientesApi.interceptors.response.use(
 			.then((response) => {
 				if(response.status === 200){
 					cookies.set('auth', response.data.access_token, { maxAge: 8 * 3600 });
-					clientesApi.defaults.headers.common[
-						"Authorization"
-					  ] = `Bearer ${response.data.access_token}`;
-				}
-			})
+					originalRequest.headers.Authorization = `Bearer ${response.data.access_token}`;
+					return axios(originalRequest);
+			}})
 			.catch((err) => {
 				return Promise.reject(err)
 			});
-			return axios(error.config)
 		}
 		return Promise.reject(error)
 	}

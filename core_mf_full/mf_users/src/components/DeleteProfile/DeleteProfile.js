@@ -14,7 +14,7 @@ const customStyles = {
 	},
 }
 
-Modal.setAppElement('#_modal')
+Modal.setAppElement('#root')
 
 export const DeleteProfile = ({ modalIsOpen, closeModal, deleteProfile }) => {
 	return (

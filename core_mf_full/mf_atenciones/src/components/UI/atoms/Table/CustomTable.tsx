@@ -126,10 +126,11 @@ const useStyles = makeStyles({
 });
 
 const CustomTable = () => {
+  const {client} = useAtencionesContext()
   const classes = useStyles();
 
   const {data} = useAtencionesContext()
-  console.log(data)
+
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(DEFAULT_ROWS_PER_PAGE);
@@ -151,6 +152,12 @@ const CustomTable = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const handleClick = (event, item) => {
+    event.preventDefault()
+    console.log(event)
+    console.log(item)
+  }
 
   return (
     <Box style={{ display: "flex", flexDirection: "column", height: "105%" }}>
@@ -174,13 +181,13 @@ const CustomTable = () => {
               : data
             ).map((item) => (
               <TableRow key={item.id_cliente}>
-                <TableCell className={classes.cell}>{item.primerNombre +" "} {(item.segundo_nombre == null) ? "" : item.segundoNombre}</TableCell>
-                <TableCell className={classes.cell}>{item.apellidoPaterno}</TableCell>
-                <TableCell className={classes.cell}>{item.apellidoMaterno}</TableCell>
-                <TableCell className={classes.cell}>{item.correoElectronico}</TableCell>
-                {/* <TableCell className={classes.cell}>{item.telefonos.filter((item) => )}</TableCell> */}
+                <TableCell className={classes.cell}>{item.primerNombre || "" +" "} {(item.segundo_nombre == null) ? "" : item.segundoNombre}</TableCell>
+                <TableCell className={classes.cell}>{item.apellidoPaterno || ""}</TableCell>
+                <TableCell className={classes.cell}>{item.apellidoMaterno || ""}</TableCell>
+                <TableCell className={classes.cell}>{item.correoElectronico || ""}</TableCell>
+                <TableCell className={classes.cell}>{item.telefonos.find((tel) => tel.numero === client.numeroCelular || "")?.numero || item.telefonos[0]?.numero || ""}</TableCell>
                 <TableCell>
-                  <CustomButtonB children={"Iniciar Atención"} />
+                  <CustomButtonB children={"Iniciar Atención"} onClick={((e) => handleClick(e,item) )}/>
                 </TableCell>
               </TableRow>
             ))}

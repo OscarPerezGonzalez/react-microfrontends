@@ -16,7 +16,7 @@ export default function MenuReportes() {
 			>
 				Reportes
 			</Typography>
-			<Button sx={{ typography: theme => theme.typography.name, color: 'black', justifyContent: 'initial' }} fullWidth>
+			<Button href='/plataforma/configuracion/reportes' sx={{ typography: theme => theme.typography.name, color: 'black', justifyContent: 'initial' }} fullWidth>
 				{' '}
 				Reporte de Usuarios
 			</Button>
