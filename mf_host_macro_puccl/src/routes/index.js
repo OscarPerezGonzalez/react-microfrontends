@@ -1,25 +1,26 @@
 // Remote wrapper
-import RemoteWrapper from 'components/RemoteWrapper'
-import Home from 'pages/Home'
+import RemoteWrapper from "components/RemoteWrapper";
+import Home from "pages/Home";
+import CoreApp from "../components/MF/CoreApp";
 
 const mfApplications = {
   loginInformation: {
-    module: './LoginApp',
-    scope: 'login',
+    module: "./LoginApp",
+    scope: "login",
     remoteUrl: `http://localhost:3001/remoteEntry.js`,
   },
-}
+};
 
 const routes = [
   {
-    path: '/',
-    component: Home,
+    path: "/",
+    component: CoreApp,
   },
   {
-    path: '/login',
+    path: "/login",
     component: RemoteWrapper,
     mf: mfApplications.loginInformation,
   },
-]
+];
 
-export default routes
+export default routes;

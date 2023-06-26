@@ -1,7 +1,6 @@
 require('dotenv').config()
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
-const ESLintPlugin = require('eslint-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 const path = require('path')
 
@@ -27,18 +26,16 @@ const devConfig = {
     historyApiFallback: true,
   },
   plugins: [
-    new ESLintPlugin(),
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
-        login: 'login@http://localhost:3001/remoteEntry.js',
-        registro: 'registro@http://localhost:3002/remoteEntry.js',
+        core: `core@${process.env.HOST_MF_CORE}`,
       },
       shared: {
         react: {
-          import: 'react', // the "react" package will be used a provided and fallback module
-          shareKey: 'react', // under this name the shared module will be placed in the share scope
-          shareScope: 'default', // share scope with this name will be used
+          import: 'react', 
+          shareKey: 'react',
+          shareScope: 'default',
           singleton: true,
           requiredVersion: deps.react,
         },

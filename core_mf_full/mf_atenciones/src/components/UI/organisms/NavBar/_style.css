@@ -1,0 +1,45 @@
+.MuiListItemText-primary {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+
+.MuiListItemText-primary:hover {
+  font-weight: bold !important;
+}
+
+.MuiListItem-root:hover {
+  font-weight:bold !important;
+}
+
+.MuiButtonBase-root:hover {
+  font-weight: bold !important;
+}
+
+.MuiList-root:hover {
+  font-weight: bold !important;
+}
+
+.my-svg-wrapper1 g rect {
+  fill: #833177;
+}
+.my-svg-wrapper1-1 path {
+  fill: currentColor;
+}
+.my-svg-wrapper2 g rect  {
+  fill: #F5F5F5;
+}
+
+div::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+div::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 12px;
+}
+
+div::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+border-radius: 12px;
+}
